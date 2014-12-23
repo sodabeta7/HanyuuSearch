@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickTakePhoto"
+        android:text="@string/button_takephoto" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="search"
+        android:text="@string/button_search" />
+    </LinearLayout>
+    <ImageView
+        android:layout_height="50px"
+        android:layout_width="wrap_content"
+        android:visibility="visible"
+        android:id="@+id/imageView1" />
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+        
+</LinearLayout><!-- From: file:/home/sodabeta/AndroidStudioProjects/UnirestAndroid-master1/app/src/main/res/layout/activity_main.xml -->
