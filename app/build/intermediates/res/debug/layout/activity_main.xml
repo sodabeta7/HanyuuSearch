@@ -11,6 +11,11 @@
         android:layout_width="fill_parent"
         android:visibility="visible"
         android:id="@+id/imageView1" />
+    <com.example.helloworld8.GifView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/progress_gif"/>
     <TextView
         style="@style/CustomText"
         android:layout_gravity="center"
@@ -40,4 +45,4 @@
     </RelativeLayout>
 </LinearLayout>
 
-<!-- From: file:/home/sodabeta/CS/Android/Project/SRTP_Demo-master/app/src/main/res/layout/activity_main.xml -->
+<!-- From: file:/home/sodabeta/CS/Android/Project/Project/app/src/main/res/layout/activity_main.xml -->

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/home/sodabeta/CS/Android/Project/SRTP_Demo-master/app/src/main/res/values-sw720dp-land/dimens.xml -->
+    <!-- From: file:/home/sodabeta/CS/Android/Project/Project/app/src/main/res/values-sw720dp-land/dimens.xml -->
     <eat-comment />
 
     <dimen name="activity_horizontal_margin">128dp</dimen>

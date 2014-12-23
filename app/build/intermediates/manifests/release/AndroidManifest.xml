@@ -25,6 +25,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.helloworld8.WebForSearch"
+            android:label="@string/title_activity_web_for_search" >
+        </activity>
     </application>
 
 </manifest>
