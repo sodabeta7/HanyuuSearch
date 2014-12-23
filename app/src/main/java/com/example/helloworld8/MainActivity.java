@@ -41,12 +41,14 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
         mImageView = (ImageView) findViewById(R.id.imageView1);
-        //mImageBitmap = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
             mAlbumStorageDirFactory = new FroyoAlbumDirFactory();
         } else {
             mAlbumStorageDirFactory = new BaseAlbumDirFactory();
         }
+        gif = (GifView)findViewById(R.id.progress_gif);
+        gif.setMovieResource(R.raw.progress_gif);
+        gif.setPaused(true);
 	}
 
 	@Override
@@ -61,11 +63,30 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         tts.setLanguage(Locale.ENGLISH);
         tts.setSpeechRate(1);
     }
-	
+    private String create_url() {
+        //google search
+        String base = "https://www.google.com.hk/#safe=strict&q=";
+        String ks = keyWords;
+        String[] as = ks.split(" ");
+        StringBuilder s = new StringBuilder(base);
+        s.append(as[0]);
+        for(int i=1;i<as.length;++i) {
+            s.append('+'+as[i]);
+        }
+        return s.toString();
+    }
+	protected void startWebviewForSearch() {
+        Intent intent = new Intent(this, WebForSearch.class);
+        String s_url = create_url();
+        intent.putExtra(SEARCH_URL_MESSAGE,s_url);
+        startActivity(intent);
+    }
     public void search(View view) {
         TextView txtView = (TextView) findViewById(R.id.textView1);
     	txtView.setText("Please wait!");
         new CallMashapeAsync1().execute(token);
+//        keyWords = "baidu logo";
+//        startWebviewForSearch();
     }
     private String getAlbumName() {
         return getString(R.string.album_name);
@@ -77,13 +98,11 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             if (storageDir != null) {
                 if (! storageDir.mkdirs()) {
                     if (! storageDir.exists()){
-                        Log.d("CameraSample", "failed to create directory");
                         return null;
                     }
                 }
             }
         } else {
-            Log.v(getString(R.string.app_name), "External storage is not mounted READ/WRITE.");
         }
         return storageDir;
     }
@@ -92,7 +111,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "IMG" + timeStamp + "_";
         File albumF = getAlbumDir();
-        //Log.d("album dir", albumF.getAbsolutePath());
         File imageF = File.createTempFile(imageFileName, JPEG_FILE_SUFFIX, albumF);
         return imageF;
     }
@@ -173,13 +191,18 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             //mCurrentPhotoPath = null;
         }
     }
+    private void handleProgressGif() {
+        gif.setPaused(false);
+        TextView txtView = (TextView) findViewById(R.id.textView1);
+        txtView.setText("Uploading");
+    }
     @Override
-
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case TAKE_IMAGE_REQUEST_CODE: {
                 if (resultCode == RESULT_OK) {
                     handlePhoto();
+                    handleProgressGif();
                     new CallMashapeAsync().execute("where");
                 }
                 break;
@@ -193,15 +216,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
             HttpResponse<JsonNode> request = null;
             try {
-                // These code snippets use an open-source library.
-//                request = Unirest.post("https://camfind.p.mashape.com/image_requests")
-//                        .header("X-Mashape-Key", "55vDTIMyfdmshoCvD6k39tT2BgVCp1LbMYHjsn2ubCVgH3QDBi")
-//                        .header("Content-Type", "application/x-www-form-urlencoded")
-//                        .field("image_request[language]", "en")
-//                        .field("image_request[locale]", "en_US")
-//                        .field("image_request[remote_image_url]", "http://upload.wikimedia.org/wikipedia/en/2/2d/Mashape_logo.png")
-//                        .asJson();
-
                 request = Unirest.post("https://camfind.p.mashape.com/image_requests")
                         .header("X-Mashape-Key", "55vDTIMyfdmshoCvD6k39tT2BgVCp1LbMYHjsn2ubCVgH3QDBi")
                         .field("image_request[image]", new File(Environment.getExternalStorageDirectory()
@@ -209,14 +223,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                         .field("image_request[language]", "en")
                         .field("image_request[locale]", "en_US")
                         .asJson();
-////                JSONObject r = request.getBody().getObject();
-////                try {
-////                    request = Unirest.get("https://camfind.p.mashape.com/image_responses/"+r.getString("token"))
-////                            .header("X-Mashape-Key", "55vDTIMyfdmshoCvD6k39tT2BgVCp1LbMYHjsn2ubCVgH3QDBi")
-////                            .asJson();
-////                } catch (JSONException e) {
-////                    e.printStackTrace();
-////                }
             } catch (UnirestException e) {
 //				// TODO Auto-generated catch block
                 e.printStackTrace();
@@ -234,36 +240,26 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+            gif.setPaused(true);
             TextView txtView = (TextView) findViewById(R.id.textView1);
-            txtView.setText(token);
+            txtView.setText("Upload Completed");
         }
     }
     private class CallMashapeAsync1 extends AsyncTask<String, Integer, HttpResponse<JsonNode>> {
         private String tt;
-        private String rr;
 
         protected HttpResponse<JsonNode> doInBackground(String... msg) {
             tt = msg[0];
             HttpResponse<JsonNode> request = null;
             try {
-//                request = Unirest.get("https://camfind.p.mashape.com/image_responses/"+token)
-//                        .header("X-Mashape-Key", "55vDTIMyfdmshoCvD6k39tT2BgVCp1LbMYHjsn2ubCVgH3QDBi")
-//                        .asJson();
-                // These code snippets use an open-source library.
-                //token = "MXV45DrnHRbRm2pXdAI6qQ";
                 Log.d("tokentoken", "https://camfind.p.mashape.com/image_responses/" + token);
                 String url = "https://camfind.p.mashape.com/image_responses/" + token;
-                String s1 = url;
                 try {
                     url = new String(url.getBytes("UTF-8"));
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
-                String s2 = url;
-                if (s1.compareTo(s2) != 0)
-                    throw new RuntimeException();
-                String api_key = "55vDTIMyfdmshoCvD6k39tT2BgVCp1LbMYHjsn2ubCVgH3QDBi";
-                rr = "https://camfind.p.mashape.com/image_responses/" + tt;
+                final String api_key = "55vDTIMyfdmshoCvD6k39tT2BgVCp1LbMYHjsn2ubCVgH3QDBi";
                 request = Unirest.get(url)
                         .header("X-Mashape-Key", api_key)
                         .asJson();
@@ -285,23 +281,25 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             String answer = null;
             try {
                 answer = response.getBody().getObject().getString("name");
+                keyWords = answer;
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
-            TextView txtView = (TextView) findViewById(R.id.textView1);
-            txtView.setText(answer);
-            tts.speak(answer, TextToSpeech.QUEUE_FLUSH, myHashAlarm);
+//            TextView txtView = (TextView) findViewById(R.id.textView1);
+//            txtView.setText(answer);
+//            tts.speak(answer, TextToSpeech.QUEUE_FLUSH, myHashAlarm);
+            startWebviewForSearch();
         }
     }
     private ImageView mImageView;
-    private TextView  mTextView;
-    private Bitmap mImageBitmap;
     private String mCurrentPhotoPath;
     private Uri mCurrentPhotoUri;
     private String token;
     private AlbumStorageDirFactory mAlbumStorageDirFactory = null;
     private static final String JPEG_FILE_SUFFIX = ".jpg";
     private final int TAKE_IMAGE_REQUEST_CODE = 1;
+    private String keyWords;
+    private GifView gif;
+    protected final static String SEARCH_URL_MESSAGE = "com.example.helloworld8.search_url_message";
 }
 
