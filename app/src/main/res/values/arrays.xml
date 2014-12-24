@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="search_option_item">
+        <item>Search similar images</item>
+        <item>Search it in amazon</item>
+    </string-array>
+</resources>

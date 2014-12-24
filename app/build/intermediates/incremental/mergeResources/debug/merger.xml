@@ -8333,6 +8333,7 @@ true
                 </string>
                 <string name="button_search" >Search
                 </string>
+                <string name="pick_search_item" ></string>
                 <string name="menu_open_browser" >Open Browser
                 </string>
                 <string name="album_name" >Photos
@@ -8432,6 +8433,18 @@ true
                 path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xhdpi/ic_launcher.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
+            <file
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/values/arrays.xml"
+                qualifiers="" >
+                <string-array name="search_option_item" >
+                    <item>
+Search similar images
+                    </item>
+                    <item>
+Search it in amazon
+                    </item>
+                </string-array>
+            </file>
         </source>
         <source path="/home/sodabeta/CS/Android/Project/Project/app/build/generated/res/rs/debug" />
         <source path="/home/sodabeta/CS/Android/Project/Project/app/build/generated/res/generated/debug" />

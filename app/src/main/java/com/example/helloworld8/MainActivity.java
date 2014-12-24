@@ -1,5 +1,10 @@
 package com.example.helloworld8;
 
+import android.annotation.TargetApi;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,6 +18,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.speech.tts.TextToSpeech;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -38,7 +44,7 @@ import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
-public class MainActivity extends Activity implements TextToSpeech.OnInitListener {
+public class MainActivity extends FragmentActivity implements TextToSpeech.OnInitListener {
 
     private TextToSpeech tts;
     @Override
@@ -109,6 +115,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 e.printStackTrace();
             }
             Log.d("token", token);
+            get_token = true;
             TextView txtView = (TextView) findViewById(R.id.textView1);
             txtView.setText("I'm identifying");
             Handler handler = new Handler();
@@ -163,6 +170,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             }
             TextView txtView = (TextView) findViewById(R.id.textView1);
             txtView.setText("I guess it is " + keyWords);
+            get_keywords = true;
         }
     }
 
@@ -184,6 +192,8 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     protected void onActivityResult (int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case TAKE_IMAGE_REQUEST_CODE: {
+                get_keywords = false;
+                get_token = false;
                 if (resultCode == RESULT_OK) {
                     handlePhoto();
                 }
@@ -276,11 +286,43 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     }
 
 
-
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public void onClickSearch(View view) {
+        new SearchOptionDialog().show(getFragmentManager(),"search_option");
+    }
+    protected void onClickGoogleSearch() {
         TextView txtView = (TextView) findViewById(R.id.textView1);
         txtView.setText("I'm working");
         searchUsingGoogle();
+    }
+    protected void onClickAmazonSearch() {
+        if(get_keywords) {
+
+        }else {
+            TextView txtView = (TextView) findViewById(R.id.textView1);
+            txtView.setText("I'm uploading");
+            gif.setPaused(false);
+            new IdentifyImageAndSearchAmazon().execute();
+        }
+    }
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public class SearchOptionDialog extends DialogFragment {
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the Builder class for convenient dialog construction
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setTitle(R.string.pick_search_item)
+                    .setItems(R.array.search_option_item, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // The 'which' argument contains the index position
+                            // of the selected item
+                            if(which == 0)
+                                onClickGoogleSearch();
+                            else if(which == 1)
+                                onClickAmazonSearch();
+                        }
+                    });
+            return builder.create();
+        }
     }
     private void searchUsingGoogle() {
         new GoogleSearchByImage().execute();
@@ -309,15 +351,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             }
         }
     }
-    private void startWebviewForSearchUsingGoogle(String url) {
-        Intent intent = new Intent(this, WebForSearch.class);
-        String s_url = create_url_google(url);
-        intent.putExtra(SEARCH_URL_MESSAGE, s_url);
-        Log.d("search_url", s_url);
-        TextView txtView = (TextView) findViewById(R.id.textView1);
-        txtView.setText("Completed!");
-        startActivity(intent);
-    }
+
     private String create_url_google(String img_url) {
         final String base = "https://www.google.com.hk/searchbyimage?&image_url=";
         StringBuilder s = new StringBuilder();
@@ -326,6 +360,120 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 s.append(img_url.charAt(i));
         }
         return base + s.toString();
+    }
+    private class IdentifyImageAndSearchAmazon extends AsyncTask<String, Integer, HttpResponse<JsonNode>> {
+
+        protected HttpResponse<JsonNode> doInBackground(String... msg) {
+
+            HttpResponse<JsonNode> request = null;
+            try {
+                request = Unirest.post("https://camfind.p.mashape.com/image_requests")
+                        .header("X-Mashape-Key", "55vDTIMyfdmshoCvD6k39tT2BgVCp1LbMYHjsn2ubCVgH3QDBi")
+                        .field("image_request[image]", new File(Environment.getExternalStorageDirectory()
+                                + File.separator + "test.jpg"))
+                        .field("image_request[language]", "en")
+                        .field("image_request[locale]", "en_US")
+                        .asJson();
+            } catch (UnirestException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+            return request;
+        }
+
+        protected void onProgressUpdate(Integer...integers) {
+        }
+
+        protected void onPostExecute(HttpResponse<JsonNode> response) {
+            try {
+                token = response.getBody().getObject().getString("token");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            Log.d("token", token);
+            get_token = true;
+            TextView txtView = (TextView) findViewById(R.id.textView1);
+            txtView.setText("I'm identifying");
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    gif.setPaused(true);
+                    TextView txtView = (TextView) findViewById(R.id.textView1);
+                    txtView.setText("Completed!");
+                    new IdentifyImageAndSearchAmazonGet().execute();
+                }
+            }, 20 * 1000);
+        }
+    }
+    private class IdentifyImageAndSearchAmazonGet extends AsyncTask<String, Integer, HttpResponse<JsonNode>> {
+        private String tt;
+
+        protected HttpResponse<JsonNode> doInBackground(String... msg) {
+            HttpResponse<JsonNode> request = null;
+            try {
+                Log.d("tokentoken", "https://camfind.p.mashape.com/image_responses/" + token);
+                String url = "https://camfind.p.mashape.com/image_responses/" + token;
+                try {
+                    url = new String(url.getBytes("UTF-8"));
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                final String api_key = "55vDTIMyfdmshoCvD6k39tT2BgVCp1LbMYHjsn2ubCVgH3QDBi";
+                request = Unirest.get(url)
+                        .header("X-Mashape-Key", api_key)
+                        .asJson();
+            } catch (UnirestException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+            return request;
+        }
+
+        protected void onProgressUpdate(Integer... integers) {
+        }
+
+        protected void onPostExecute(HttpResponse<JsonNode> response) {
+            HashMap<String, String> myHashAlarm = new HashMap();
+            myHashAlarm.put(TextToSpeech.Engine.KEY_PARAM_STREAM,
+                    String.valueOf(AudioManager.STREAM_ALARM));
+            String answer = null;
+            try {
+                answer = response.getBody().getObject().getString("name");
+                keyWords = answer;
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            TextView txtView = (TextView) findViewById(R.id.textView1);
+            txtView.setText("I guess it is " + keyWords);
+            get_keywords = true;
+            startWebviewForSearchAmazon();
+        }
+    }
+    private void startWebviewForSearchAmazon() {
+        String url_base = "http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=";
+        String ks = keyWords;
+        String[] as = ks.split(" ");
+        StringBuilder s = new StringBuilder(url_base);
+        s.append(as[0]);
+        for (int i = 1; i < as.length; ++i) {
+            s.append('+' + as[i]);
+        }
+        String url = s.toString();
+        Intent intent = new Intent(this, WebForSearch.class);
+        intent.putExtra(SEARCH_URL_MESSAGE, url);
+        Log.d("search_amazon_url", url);
+        startActivity(intent);
+    }
+    private void startWebviewForSearchUsingGoogle(String url) {
+        Intent intent = new Intent(this, WebForSearch.class);
+        String s_url = create_url_google(url);
+        intent.putExtra(SEARCH_URL_MESSAGE, s_url);
+        Log.d("search_url", s_url);
+        TextView txtView = (TextView) findViewById(R.id.textView1);
+        txtView.setText("Completed!");
+        startActivity(intent);
     }
 
 
@@ -348,7 +496,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         startActivity(intent);
     }
 
-
     private ImageView mImageView;
     private String mCurrentPhotoPath;
     private Uri mCurrentPhotoUri;
@@ -358,6 +505,8 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     private final int TAKE_IMAGE_REQUEST_CODE = 1;
     private String keyWords;
     private GifView gif;
+    private boolean get_keywords = false;
+    private boolean get_token = false;
     protected final static String SEARCH_URL_MESSAGE = "com.example.helloworld8.search_url_message";
 }
 

@@ -12,4 +12,5 @@
     <string name="title_activity_web_for_search">WebForSearch</string>
     <string name="button_identify">Identify</string>
     <string name="menu_open_browser">Open Browser</string>
+    <string name="pick_search_item"></string>
 </resources>

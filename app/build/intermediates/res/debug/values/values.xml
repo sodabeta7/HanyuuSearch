@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- From: file:/home/sodabeta/CS/Android/Project/Project/app/src/main/res/values/arrays.xml -->
+    <eat-comment />
+
+    <string-array name="search_option_item">
+        <item>Search similar images</item>
+        <item>Search it in amazon</item>
+    </string-array>
     <!-- From: file:/home/sodabeta/CS/Android/Project/Project/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res/values/values.xml -->
     <eat-comment />
 
@@ -567,6 +574,7 @@
     <string name="edit_message">Ask a question</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_open_browser">Open Browser</string>
+    <string name="pick_search_item"></string>
     <string name="result">Result</string>
     <string name="title_activity_web_for_search">WebForSearch</string>
     <!-- From: file:/home/sodabeta/CS/Android/Project/Project/app/src/main/res/values/styles.xml -->
