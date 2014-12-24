@@ -8319,6 +8319,26 @@ true
                 </dimen>
             </file>
             <file
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/values/arrays.xml"
+                qualifiers="" >
+                <string-array name="image_option_item" >
+                    <item>
+take a photo
+                    </item>
+                    <item>
+select a photo from gallery
+                    </item>
+                </string-array>
+                <string-array name="search_option_item" >
+                    <item>
+Search similar images
+                    </item>
+                    <item>
+Search it in amazon
+                    </item>
+                </string-array>
+            </file>
+            <file
                 path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/values/strings.xml"
                 qualifiers="" >
                 <string name="hello_world" >Hello world!
@@ -8433,26 +8453,6 @@ true
                 path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xhdpi/ic_launcher.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
-            <file
-                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/values/arrays.xml"
-                qualifiers="" >
-                <string-array name="image_option_item" >
-                    <item>
-take a photo
-                    </item>
-                    <item>
-select a photo from gallery
-                    </item>
-                </string-array>
-                <string-array name="search_option_item" >
-                    <item>
-Search similar images
-                    </item>
-                    <item>
-Search it in amazon
-                    </item>
-                </string-array>
-            </file>
         </source>
         <source path="/home/sodabeta/CS/Android/Project/Project/app/build/generated/res/rs/debug" />
         <source path="/home/sodabeta/CS/Android/Project/Project/app/build/generated/res/generated/debug" />

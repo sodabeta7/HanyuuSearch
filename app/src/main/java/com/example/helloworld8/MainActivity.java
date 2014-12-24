@@ -207,7 +207,7 @@ public class MainActivity extends FragmentActivity implements TextToSpeech.OnIni
         }
     }
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public class ImageOptionDialog extends DialogFragment {
+    public static class ImageOptionDialog extends DialogFragment {
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             // Use the Builder class for convenient dialog construction
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -217,9 +217,9 @@ public class MainActivity extends FragmentActivity implements TextToSpeech.OnIni
                             // The 'which' argument contains the index position
                             // of the selected item
                             if(which == 0)
-                                onClickCamera();
+                                ((MainActivity)getActivity()).onClickCamera();
                             else if(which == 1)
-                                onClickSelectImage();
+                                ((MainActivity)getActivity()).onClickSelectImage();
                         }
                     });
             return builder.create();
@@ -489,7 +489,7 @@ public class MainActivity extends FragmentActivity implements TextToSpeech.OnIni
     }
     protected void onClickAmazonSearch() {
         if(get_keywords) {
-
+            new IdentifyImageAndSearchAmazon().execute();
         }else {
             TextView txtView = (TextView) findViewById(R.id.textView1);
             txtView.setText("I'm uploading");
@@ -498,7 +498,7 @@ public class MainActivity extends FragmentActivity implements TextToSpeech.OnIni
         }
     }
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public class SearchOptionDialog extends DialogFragment {
+    public static class SearchOptionDialog extends DialogFragment {
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             // Use the Builder class for convenient dialog construction
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -508,9 +508,9 @@ public class MainActivity extends FragmentActivity implements TextToSpeech.OnIni
                             // The 'which' argument contains the index position
                             // of the selected item
                             if(which == 0)
-                                onClickGoogleSearch();
+                                ((MainActivity)getActivity()).onClickGoogleSearch();
                             else if(which == 1)
-                                onClickAmazonSearch();
+                                ((MainActivity)getActivity()).onClickAmazonSearch();
                         }
                     });
             return builder.create();
