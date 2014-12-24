@@ -2,6 +2,7 @@ package com.example.helloworld8;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,16 +17,18 @@ import com.example.MashapeHello.R;
 
 public class WebForSearch extends Activity {
     private WebView web_view;
+    private String url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_for_search);
         Intent intent = getIntent();
-        String url = intent.getStringExtra(MainActivity.SEARCH_URL_MESSAGE);
+        url = intent.getStringExtra(MainActivity.SEARCH_URL_MESSAGE);
         Log.d("search_url", url);
         web_view = (WebView)findViewById(R.id.web_view);
         web_view.getSettings().setJavaScriptEnabled(true);//JS
         web_view.getSettings().setBuiltInZoomControls(true);//zoom
+
         web_view.loadUrl(url);
         web_view.setWebViewClient(new WebViewClient(){
             @Override
@@ -65,7 +68,9 @@ public class WebForSearch extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.open_browser) {
+            Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(web_view.getUrl()));
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);

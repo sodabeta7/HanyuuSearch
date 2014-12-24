@@ -8333,11 +8333,15 @@ true
                 </string>
                 <string name="button_search" >Search
                 </string>
+                <string name="menu_open_browser" >Open Browser
+                </string>
                 <string name="album_name" >Photos
                 </string>
                 <string name="result" >Result
                 </string>
                 <string name="button_takephoto" >Take Photo
+                </string>
+                <string name="button_identify" >Identify
                 </string>
             </file>
             <file

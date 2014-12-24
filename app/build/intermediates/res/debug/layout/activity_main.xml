@@ -37,10 +37,17 @@
                 android:onClick="onClickTakePhoto"
                 android:text="@string/button_takephoto" />
             <Button
-                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:onClick="search"
+                android:onClick="onClickSearch"
                 android:text="@string/button_search" />
+            <Button
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="onClickIdentify"
+                android:text="@string/button_identify" />
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

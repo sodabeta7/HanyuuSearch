@@ -8339,6 +8339,8 @@ true
                 </string>
                 <string name="button_takephoto" >Take Photo
                 </string>
+                <string name="button_identify" >Identify
+                </string>
             </file>
             <file
                 path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/values/styles.xml"

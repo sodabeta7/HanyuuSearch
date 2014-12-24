@@ -1068,12 +1068,13 @@ containing a value of this type.
         public static final int action_settings=0x7f0b000d;
         public static final int album_name=0x7f0b000e;
         public static final int app_name=0x7f0b000f;
-        public static final int button_search=0x7f0b0010;
-        public static final int button_takephoto=0x7f0b0011;
-        public static final int edit_message=0x7f0b0012;
-        public static final int hello_world=0x7f0b0013;
-        public static final int result=0x7f0b0014;
-        public static final int title_activity_web_for_search=0x7f0b0015;
+        public static final int button_identify=0x7f0b0010;
+        public static final int button_search=0x7f0b0011;
+        public static final int button_takephoto=0x7f0b0012;
+        public static final int edit_message=0x7f0b0013;
+        public static final int hello_world=0x7f0b0014;
+        public static final int result=0x7f0b0015;
+        public static final int title_activity_web_for_search=0x7f0b0016;
     }
     public static final class style {
         /** 

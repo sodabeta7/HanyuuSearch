@@ -10,5 +10,6 @@
     <string name="album_name">Photos</string>
     <string name="result">Result</string>
     <string name="title_activity_web_for_search">WebForSearch</string>
-
+    <string name="button_identify">Identify</string>
+    <string name="menu_open_browser">Open Browser</string>
 </resources>

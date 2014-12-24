@@ -1,7 +1,7 @@
 package com.example.helloworld8;
 
 /**
- * Created by sodabeta on 14-12-24.
+ * Created by sodabeta
  */
 import com.example.MashapeHello.R;
 import android.annotation.SuppressLint;
@@ -14,33 +14,6 @@ import android.util.AttributeSet;
 import android.view.View;
 
 public class GifView extends View {
-
-    /**
-     * 默认为1秒
-     */
-    private static final int DEFAULT_MOVIE_DURATION = 1000;
-
-    private int mMovieResourceId;
-
-    private Movie mMovie;
-
-    private long mMovieStart;
-
-    private int mCurrentAnimationTime = 0;
-
-    private float mLeft;
-
-    private float mTop;
-
-    private float mScale;
-
-    private int mMeasuredMovieWidth;
-
-    private int mMeasuredMovieHeight;
-
-    private boolean mVisible = true;
-
-    private volatile boolean mPaused = false;
 
     public GifView(Context context) {
         this(context, null);
@@ -61,7 +34,7 @@ public class GifView extends View {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
-        // 从描述文件中读出gif的值，创建出Movie实例
+        // get a movie instance
         final TypedArray array = context.obtainStyledAttributes(attrs,
                 R.styleable.GifView, defStyle, R.style.Widget_GifView);
         mMovieResourceId = array.getResourceId(R.styleable.GifView_gif, -1);
@@ -74,7 +47,6 @@ public class GifView extends View {
     }
 
     /**
-     * 设置gif图资源
      *
      * @param movieResId
      */
@@ -100,7 +72,6 @@ public class GifView extends View {
     }
 
     /**
-     * 设置暂停
      *
      * @param paused
      */
@@ -114,7 +85,7 @@ public class GifView extends View {
     }
 
     /**
-     * 判断gif图是否停止了
+     * check if is paused
      *
      * @return
      */
@@ -173,21 +144,17 @@ public class GifView extends View {
 
     private void updateAnimationTime() {
         long now = android.os.SystemClock.uptimeMillis();
-        // 如果第一帧，记录起始时间
         if (mMovieStart == 0) {
             mMovieStart = now;
         }
-        // 取出动画的时长
         int dur = mMovie.duration();
         if (dur == 0) {
             dur = DEFAULT_MOVIE_DURATION;
         }
-        // 算出需要显示第几帧
         mCurrentAnimationTime = (int) ((now - mMovieStart) % dur);
     }
 
     private void drawMovieFrame(Canvas canvas) {
-        // 设置要显示的帧，绘制即可
         mMovie.setTime(mCurrentAnimationTime);
         canvas.save(Canvas.MATRIX_SAVE_FLAG);
         canvas.scale(mScale, mScale);
@@ -218,4 +185,28 @@ public class GifView extends View {
         invalidateView();
     }
 
+
+    private static final int DEFAULT_MOVIE_DURATION = 1000;
+
+    private int mMovieResourceId;
+
+    private Movie mMovie;
+
+    private long mMovieStart;
+
+    private int mCurrentAnimationTime = 0;
+
+    private float mLeft;
+
+    private float mTop;
+
+    private float mScale;
+
+    private int mMeasuredMovieWidth;
+
+    private int mMeasuredMovieHeight;
+
+    private boolean mVisible = true;
+
+    private volatile boolean mPaused = false;
 }
