@@ -4,6 +4,10 @@
     <!-- From: file:/home/sodabeta/CS/Android/Project/Project/app/src/main/res/values/arrays.xml -->
     <eat-comment />
 
+    <string-array name="image_option_item">
+        <item>take a photo</item>
+        <item>select a photo from gallery</item>
+    </string-array>
     <string-array name="search_option_item">
         <item>Search similar images</item>
         <item>Search it in amazon</item>
