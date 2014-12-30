@@ -8296,6 +8296,11 @@ true
                 qualifiers="mdpi-v4"
                 type="drawable" />
             <file
+                name="ic_logo"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-mdpi/ic_logo.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
                 name="activity_web_for_search"
                 path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/layout/activity_web_for_search.xml"
                 qualifiers=""
@@ -8308,6 +8313,11 @@ true
             <file
                 name="ic_launcher"
                 path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-hdpi/ic_launcher.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_logo"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-hdpi/ic_logo.png"
                 qualifiers="hdpi-v4"
                 type="drawable" />
             <file
@@ -8421,6 +8431,11 @@ Search it in amazon
                 qualifiers="xxhdpi-v4"
                 type="drawable" />
             <file
+                name="ic_logo"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xxhdpi/ic_logo.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
                 name="progress_gif"
                 path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/raw/progress_gif.gif"
                 qualifiers=""
@@ -8451,6 +8466,231 @@ Search it in amazon
             <file
                 name="ic_launcher"
                 path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xhdpi/ic_launcher.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="ic_logo"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xhdpi/ic_logo.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="camera_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-hdpi/camera_btn.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="identify_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xhdpi/identify_btn.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="search_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-hdpi/search_btn.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="search_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xxhdpi/search_btn.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="search_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-mdpi/search_btn.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="camera_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-mdpi/camera_btn.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="search_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xhdpi/search_btn.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="camera_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xxhdpi/camera_btn.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="identify_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-mdpi/identify_btn.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="identify_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-hdpi/identify_btn.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="identify_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xxhdpi/identify_btn.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="camera_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xhdpi/camera_btn.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="red_search_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xxhdpi/red_search_btn.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="search_3"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-mdpi/search_3.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="search_2"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xhdpi/search_2.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="search_3"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xxhdpi/search_3.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="camera_2"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xhdpi/camera_2.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="red_search_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-mdpi/red_search_btn.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="camera_3"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-mdpi/camera_3.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="blue_cameta_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-hdpi/blue_cameta_btn.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="blue_cameta_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xxhdpi/blue_cameta_btn.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="search_2"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-mdpi/search_2.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="red_search_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xhdpi/red_search_btn.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="search_3"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xhdpi/search_3.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="camera_1"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-hdpi/camera_1.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="blue_cameta_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xhdpi/blue_cameta_btn.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="camera_1"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xhdpi/camera_1.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="camera_1"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xxhdpi/camera_1.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="camera_2"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-hdpi/camera_2.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="blue_cameta_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-mdpi/blue_cameta_btn.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="id_3"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-mdpi/id_3.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="camera_3"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-hdpi/camera_3.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="camera_2"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xxhdpi/camera_2.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="red_search_btn"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-hdpi/red_search_btn.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="id_3"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xhdpi/id_3.png"
+                qualifiers="xhdpi-v4"
+                type="drawable" />
+            <file
+                name="id_3"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-hdpi/id_3.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="camera_1"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-mdpi/camera_1.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="search_2"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-hdpi/search_2.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="search_3"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-hdpi/search_3.png"
+                qualifiers="hdpi-v4"
+                type="drawable" />
+            <file
+                name="camera_2"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-mdpi/camera_2.png"
+                qualifiers="mdpi-v4"
+                type="drawable" />
+            <file
+                name="id_3"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xxhdpi/id_3.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="camera_3"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xxhdpi/camera_3.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="search_2"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xxhdpi/search_2.png"
+                qualifiers="xxhdpi-v4"
+                type="drawable" />
+            <file
+                name="camera_3"
+                path="/home/sodabeta/CS/Android/Project/Project/app/src/main/res/drawable-xhdpi/camera_3.png"
                 qualifiers="xhdpi-v4"
                 type="drawable" />
         </source>

@@ -947,7 +947,19 @@ containing a value of this type.
         public static final int abc_textfield_searchview_holo_light=0x7f020054;
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
-        public static final int ic_launcher=0x7f020057;
+        public static final int blue_cameta_btn=0x7f020057;
+        public static final int camera_1=0x7f020058;
+        public static final int camera_2=0x7f020059;
+        public static final int camera_3=0x7f02005a;
+        public static final int camera_btn=0x7f02005b;
+        public static final int ic_launcher=0x7f02005c;
+        public static final int ic_logo=0x7f02005d;
+        public static final int id_3=0x7f02005e;
+        public static final int identify_btn=0x7f02005f;
+        public static final int red_search_btn=0x7f020060;
+        public static final int search_2=0x7f020061;
+        public static final int search_3=0x7f020062;
+        public static final int search_btn=0x7f020063;
     }
     public static final class id {
         public static final int action_bar=0x7f09001c;

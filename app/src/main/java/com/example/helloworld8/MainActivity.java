@@ -489,7 +489,7 @@ public class MainActivity extends FragmentActivity implements TextToSpeech.OnIni
     }
     protected void onClickAmazonSearch() {
         if(get_keywords) {
-            new IdentifyImageAndSearchAmazon().execute();
+            startWebviewForSearchAmazon();
         }else {
             TextView txtView = (TextView) findViewById(R.id.textView1);
             txtView.setText("I'm uploading");

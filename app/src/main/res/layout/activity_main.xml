@@ -30,24 +30,42 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <Button
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+            <!--<Button-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:onClick="onClickTakePhoto"-->
+                <!--android:text="@string/button_takephoto" />-->
+            <!--<Button-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:onClick="onClickSearch"-->
+                <!--android:text="@string/button_search" />-->
+            <!--<Button-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:onClick="onClickIdentify"-->
+                <!--android:text="@string/button_identify" />-->
+            <ImageView
+                android:src="@drawable/camera_3"
                 android:onClick="onClickTakePhoto"
-                android:text="@string/button_takephoto" />
-            <Button
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:src="@drawable/search_3"
                 android:onClick="onClickSearch"
-                android:text="@string/button_search" />
-            <Button
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:src="@drawable/id_3"
                 android:onClick="onClickIdentify"
-                android:text="@string/button_identify" />
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>
